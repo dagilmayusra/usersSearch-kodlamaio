@@ -1,0 +1,29 @@
+
+  <input 
+    class="form-control me-2"
+    type="search" 
+    placeholder="Username search" 
+    aria-label="Search"
+    [(ngModel)]="userName"
+    style="margin:auto "
+  />
+  <button class="btn btn-outline-success" type="submit" (click)="clickMe()">Search</button>
+
+
+<div class="container" *ngIf="users && users.length>0">
+    <div class="row" >
+      <div *ngFor="let item of users" class="col-2 m-3">
+        <div class="card" style="width: 18rem;">
+          <img src="{{item.avatar_url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.login}}</h5>
+            <a href="{{item.html_url}}" class="btn btn-primary">Github Profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>
+<div class="row" *ngIf="users && users.length==0">
+  User Not Found
+</div>
